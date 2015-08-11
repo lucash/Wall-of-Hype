@@ -1,0 +1,10 @@
+extends layouts/layout
+block content
+    if voting
+        include vote
+    else
+        h1(style='text-align: center') Derzeit ist kein Voting offen!
+        h3(style='text-align: center') Neue Spiele können jederzeit im Community Tab vorgeschlagen werden.
+    script.
+        $("#nav-voting").addClass("nav-active");
+        PAGE_TYPE = 'voting'

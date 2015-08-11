@@ -1,0 +1,8 @@
+div#faq_banner
+    a(href="#" data-featherlight="#faqlightbox") Spiele vorschlagen
+    div#faqlightbox.featherlightbox.
+        Trage hier deinen Wall of Hype Kandidaten ein!
+        <form id='suggestform' action='/suggest' method='post'>
+            <input size='100' type='text' name='game' required />
+            <button type='submit'>OK</button>
+        </form>

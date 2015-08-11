@@ -1,0 +1,26 @@
+doctype html
+head
+    title Wall of Hype
+
+    meta(charset='utf-8')
+    meta(name="description" content="Die inoffizielle RocketbeansTV Wall of Hype bekannt aus GAME plus")
+    meta(name="keywords" content="RocketbeansTV, Wall of Hype, GAME plus, rbtv")
+    meta(name="author" content="René Spengel, Ekrow")
+    meta(lang='de-DE')
+    link(rel="STYLESHEET", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
+    link(rel="STYLESHEET", href="/css/style.css")
+    link(href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css')
+    script(src='https://code.jquery.com/jquery-2.1.4.js')
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
+    script(src="/js/client.js")
+    script(src="https://www.google.com/recaptcha/api.js")
+
+body
+    #main.container
+        div#header
+            a#headertxt(href="/") Wall of Hype
+        div.well
+            include nav
+            block content
+        include footer

@@ -1,0 +1,8 @@
+extends layouts/layout
+block content
+    include wall
+    include about
+    include links
+    script.
+        $("#nav-official").addClass("nav-active");
+        PAGE_TYPE = 'index';

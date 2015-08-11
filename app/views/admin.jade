@@ -1,0 +1,33 @@
+extends layouts/layout
+block content
+    div#admin-nav
+        h1 admin dashboard
+        p current pollId: #{pollId}
+        ul.navbar
+            li
+                a.navbar-link(href='/new') add game
+            li
+                a.navbar-link(href='/togglepoll') toggle poll div
+            li
+                a.navbar-link(href='/reset') reset suggestions
+            li
+                a.navbar-link(href='/createpoll') create poll from suggestions
+            li
+                a.navbar-link(href='/createhistory') create wall history
+    h1.toggle-games games
+    div#admin-games
+        for game in games
+            li #{game.title}
+                ul
+                    li #{game.coverart}
+                    li is offical? #{game.official}
+            a(href='/edit/#{game._id}') edit
+            hr
+    hr
+    h2.toggle-suggestions suggestions
+    div#admin-suggestions
+        ul
+            for suggestion in suggestions
+                 li #{suggestion.title}
+    script.
+        PAGE_TYPE = 'admin'

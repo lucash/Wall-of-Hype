@@ -1,0 +1,18 @@
+extends layouts/layout
+block content
+    div.well
+        h1
+            span.fa.fa-sign-in Login
+        if message.length > 0
+            div.alert.alert-danger #{message}
+
+        form(action='/login' method='post')
+            div.form-group
+                label Email
+                input.form-control(type='text' name='email')
+            div.form-group
+                label Password
+                input.form-control(type='password' name='password')
+
+            button.btn.btn-warning.btn-lg(type='submit') Login
+        hr

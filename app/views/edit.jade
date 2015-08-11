@@ -1,0 +1,44 @@
+extends layouts/layout
+block content
+    h1 #{game.title}
+    form(action='/save' method='post')
+        div.form-group
+            label title
+            input.form-control(type='text' name='title' value='#{game.title}')
+        div.form-group
+            label description
+            input.form-control(type='text' name='description' value='#{game.description}')
+        div.form-group
+            label dev
+            input.form-control(type='text' name='developer' value='#{game.developer}')
+        div.form-group
+            label publisher
+            input.form-control(type='text' name='publisher' value='#{game.publisher}')
+        div.form-group
+            label homepage
+            input.form-control(type='text' name='homepage' value='#{game.homepage}')
+        div.form-group
+            label coverart
+            input.form-control(type='text' name='coverart' value='#{game.coverart}')
+        div.form-group
+            label Video ID
+            input.form-control(type='text' name='trailerID' value='#{game.trailerID}')
+        div.form-group
+            label releasedate
+            input.form-control(type='text' name='releasedate' value='#{game.releasedate}')
+        div.form-group
+            label community
+            input.form-control(type='text' name='community' value='#{game.community}')
+        div.form-group
+            label official
+            input.form-control(type='text' name='official' value='#{game.official}')
+        div.form-group
+            label active
+            input.form-control(type='text' name='active' value='#{game.active}')
+        div.form-group
+            label released
+            input.form-control(type='text' name='released' value='#{game.released}')
+        input(type='hidden' name='_id' value='#{game._id}')
+        button.btn.btn-warning.btn-lg(type='submit') Save changes
+    script.
+        PAGE_TYPE = 'edit'

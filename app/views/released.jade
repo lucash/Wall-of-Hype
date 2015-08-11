@@ -1,0 +1,7 @@
+extends layouts/layout
+block content
+    include wall
+    include aboutreleased
+    script.
+        $("#nav-released").addClass("nav-active");
+        PAGE_TYPE = 'released';

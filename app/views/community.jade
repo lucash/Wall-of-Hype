@@ -1,0 +1,9 @@
+extends layouts/layout
+block content
+    include wall
+    //include communitystats
+    include suggest
+    include aboutcommunity
+    script.
+        $("#nav-community").addClass("nav-active");
+        PAGE_TYPE = 'community';

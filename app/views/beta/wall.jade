@@ -1,0 +1,32 @@
+ul#spiele
+    - var right = true
+    each game, index in games
+        li
+            if right
+                div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                    div.game_name #{game.title} #{foo}
+                div.info.right
+                    div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                        div.game_name_info #{game.title}
+                    div.info_text
+                        p Developer: #{game.developer}
+                        p Publisher: #{game.publisher}
+                        p Release: #{game.releasedate}
+                        p
+                            a(href="#{game.homepage}" target="_blank") Zur Website
+                        div.play(id="#{game._id}") Trailer ansehen
+                - right = false;
+            else
+                div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                    div.game_name #{game.title} #{foo}
+                div.info.left
+                    div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                        div.game_name_info #{game.title}
+                    div.info_text
+                        p Developer: #{game.developer}
+                        p Publisher: #{game.publisher}
+                        p Release: #{game.releasedate}
+                        p
+                            a(href="#{game.homepage}" target="_blank") Zur Website
+                        div.play(id="#{game._id}") Trailer ansehen
+                - right = true;

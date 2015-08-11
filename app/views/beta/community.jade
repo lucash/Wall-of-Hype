@@ -1,0 +1,12 @@
+extends layouts/layout
+block content
+    include faq_community
+    include player
+    include wall
+    div(style="clear:both")
+    div.btnstack
+        a.btn(href="#" data-featherlight="#faqlightbox") Spiele vorschlagen
+        span &nbsp;&nbsp;&nbsp;&nbsp;
+        a.btn(href="/voting") Zum Voting
+    script.
+        $("#nav-community").addClass("active");

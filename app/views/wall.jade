@@ -1,0 +1,23 @@
+div#gameinfo-container
+    h2
+        span#gameinfo-title %title%
+    div#gameinfo-box
+        div#gameinfo-vid
+        div#gameinfo-info
+            p
+                span#gameinfo-description %desc%
+            p
+                span#gameinfo-dev %dev%
+            p
+                span#gameinfo-publisher %publisher%
+            p
+                span#gameinfo-release %rls%
+            p
+                span#gameinfo-hp %hp%
+div#hint Hint: Klicke auf ein Game um mehr zu erfahren
+div#wall
+    each game in games
+        div.game(id="#{game._id}")
+            div.gamecover
+                img.cover(src="#{game.coverart}")
+            div.gametitle #{game.title}
