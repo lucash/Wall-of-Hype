@@ -25,7 +25,7 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-app.use(favicon('./public/img/favicon.ico'));
+app.use(favicon('./public/fav.ico'));
 
 // Views
 app.set('views', 'app/views');
