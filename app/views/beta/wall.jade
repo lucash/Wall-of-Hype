@@ -7,7 +7,7 @@ ul#spiele
                 div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
                     if game.new
                         div.is_new NEW
-                    div.game_name #{game.title} #{foo}
+                    div.game_name #{game.title}
                 div.info.right
                     div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
                         div.game_name_info #{game.title}
@@ -21,7 +21,9 @@ ul#spiele
                 - right = false;
             else
                 div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
-                    div.game_name #{game.title} #{foo}
+                    if game.new
+                        div.is_new NEW
+                    div.game_name #{game.title}
                 div.info.left
                     div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
                         div.game_name_info #{game.title}
