@@ -35,7 +35,7 @@ Generell für alle Veränderungen offen. Forked und schreibt eine Pull-Request u
 
 ## Todo
 
-1. Grafische Überarbeitung
+1. ~~Grafische Überarbeitung~~
 2. Möglichkeit dynamische "News" zu verfassen 
 3. Eigenes Voting-System (strawpoll entfernen)
 ...
