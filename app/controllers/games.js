@@ -19,7 +19,8 @@ var GamesController = {
             active: data.active,
             released: data.released,
             releasedate: data.releasedate,
-            platforms: platforms
+            platforms: platforms,
+            new: data.new
         });
 
         game.save(function (err) {
@@ -42,6 +43,7 @@ var GamesController = {
             game.active = data.active;
             game.released = data.released;
             game.releasedate = data.releasedate;
+            game.new = data.new;
 
             // platforms..
 

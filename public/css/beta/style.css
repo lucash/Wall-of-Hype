@@ -404,3 +404,10 @@ MISC
     color: #2e2750;
     outline: 10px solid #FFF;
 }
+
+.is_new{
+    width: 100px;
+    background-color:white;
+    color: red;
+    text-align: center;
+}

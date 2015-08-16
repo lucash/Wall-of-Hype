@@ -15,7 +15,8 @@ var gamesSchema = new Schema({
     active: Boolean,
     released: Boolean,
     releasedate: String,
-    platforms: Array
+    platforms: Array,
+    new: Boolean
 });
 
 var Game = mongoose.model('Games', gamesSchema);
