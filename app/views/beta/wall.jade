@@ -1,9 +1,12 @@
 ul#spiele
+    h1(style="color:white;text-align:center") Hint: Klicke auf ein Spiel um den neuesten Trailer anzuschauen!
     - var right = true
     each game, index in games
         li
             if right
                 div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                    if game.new
+                        div.is_new NEW
                     div.game_name #{game.title} #{foo}
                 div.info.right
                     div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
@@ -14,7 +17,7 @@ ul#spiele
                         p Release: #{game.releasedate}
                         p
                             a(href="#{game.homepage}" target="_blank") Zur Website
-                        div.play(id="#{game._id}") Trailer ansehen
+                        div.play(id="#{game._id}") Trailer starten
                 - right = false;
             else
                 div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
