@@ -365,6 +365,10 @@ MISC
 **********************************
 */
 
+.disclaimer{
+    font-size: 70%;
+}
+
 .well{
     padding: 10px;
     background-color: white;
