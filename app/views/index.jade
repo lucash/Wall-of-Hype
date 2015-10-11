@@ -1,8 +1,10 @@
 extends layouts/layout
 block content
+    include faq_index
+    include player
     include wall
-    include about
-    include links
+    div(style="clear:both")
+    div.btnstack
+        a.btn(href="#" data-featherlight="#faqlightbox") FAQ
     script.
-        $("#nav-official").addClass("nav-active");
-        PAGE_TYPE = 'index';
+        $("#nav-official").addClass("active");

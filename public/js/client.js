@@ -15,65 +15,60 @@ $(document).ready(function () {
     ga('create', 'UA-53253046-2', 'auto');
     ga('send', 'pageview');
 
-    if (PAGE_TYPE == 'index' || PAGE_TYPE == 'community' || PAGE_TYPE == 'released' || PAGE_TYPE == 'admin') {
-        curr_id = 0;
-        var games;
-        var submit = false;
+    var curr_id = 0;
+    var games;
+    var submit = false;
 
-        $.get('/api/games/all', function (data) {
-            games = data;
-        });
+    $.get('/api/games/all', function (data) {
+        games = data;
+    });
 
-        $('.game').on('click', function () {
-            var id = $(this).attr('id');
-            if ($('#gameinfo-container').css('display') === 'none' || id != curr_id) {
-                $('#gameinfo-container').fadeIn('fast');
-                for (var game in games) {
-                    if (games.hasOwnProperty(game)) {
-                        var obj = games[game];
-                        if (obj.id == id) {
-                            $('#gameinfo-title').text(obj.title);
-                            $('#gameinfo-description').text(obj.description);
-                            $('#gameinfo-dev').text("Developer: " + obj.developer);
-                            $('#gameinfo-publisher').text("Publisher: " + obj.publisher);
-                            $('#gameinfo-release').text("Release: " + obj.releasedate);
-                            $('#gameinfo-hp').html("<a target='_blank' href='" + obj.homepage + "'>Offizielle Website</a>");
-                            $('#gameinfo-vid').html("<div class='embed-container'><iframe src='https://www.youtube.com/embed/" + obj.trailerID + "' frameborder='0' allowfullscreen></iframe></div>");
-                        }
+    $('.play, .game, .game_info').on('click', function () {
+        var id = $(this).attr('id');
+        if ($('#player_container').css('display') === 'none' || id != curr_id) {
+            $('#player_container').fadeIn('fast');
+            for (var game in games) {
+                if (games.hasOwnProperty(game)) {
+                    var obj = games[game];
+                    if (obj.id == id) {
+                        $('#player_title').text(obj.title);
+                        $('#player_pun').text(obj.description);
+                        $('#player_box').html("<div class='embed-container'><iframe src='https://www.youtube.com/embed/" + obj.trailerID + "' frameborder='0' allowfullscreen></iframe></div>");
+                        scrollto("#player_container");
                     }
                 }
-
-
-                curr_id = id;
-            } else {
-                $('#gameinfo-container').fadeOut('fast');
             }
-        });
 
-        function captcha_filled() {
-            console.log('captcha filled');
-            submit = true;
+
+            curr_id = id;
+        } else {
+            $('#player_container').fadeOut('fast');
         }
+    });
 
-        function captcha_expired() {
-            console.log('captcha expired');
-            submit = false;
-        }
+    function captcha_filled() {
+        console.log('captcha filled');
+        submit = true;
+    }
 
-        $('#suggestform').submit(function () {
-            alert('Vielen Dank! Dein Vorschlag wurde entgegengenommen.')
-        });
+    function captcha_expired() {
+        console.log('captcha expired');
+        submit = false;
+    }
 
-        $('.toggle-games').on('click', function(){
-            $('#admin-games').toggle();
-        });
+    $('.toggle-games').on('click', function(){
+        $('#admin-games').toggle();
+    });
 
-        $('.toggle-suggestions').on('click', function(){
-            $('#admin-suggestions').toggle();
-        });
+    $('.toggle-suggestions').on('click', function(){
+        $('#admin-suggestions').toggle();
+    });
 
-        $('#toast').on('click', function(){
-            $('#toast').toggle();
-        });
+    $('#toast').on('click', function(){
+        $('#toast').toggle();
+    });
+
+    function scrollto(element){
+        $('html, body').animate({ scrollTop: ($(element).offset().top)}, 'slow');
     }
 });

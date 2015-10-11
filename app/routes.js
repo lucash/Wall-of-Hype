@@ -20,7 +20,7 @@ module.exports = function (app, passport) {
             cb.sort(function () {
                 return .5 - Math.random();
             });
-            res.render('beta/index', {games: cb});
+            res.render('index', {games: cb});
         });
     });
 
@@ -28,10 +28,10 @@ module.exports = function (app, passport) {
     // IMPRINT ===========================
     // =====================================
     app.get('/imprint', function (req, res) {
-        res.render('beta/imprint');
+        res.render('imprint');
     });
     app.get('/datenschutz', function (req, res) {
-        res.render('beta/datenschutz');
+        res.render('datenschutz');
     });
 
     // =====================================
@@ -60,7 +60,7 @@ module.exports = function (app, passport) {
                 })
             }
         ], function (err, results) {
-            res.render('beta/community', {
+            res.render('community', {
                 voting: results[0],
                 games: results[1],
                 pollId: results[2]
@@ -70,7 +70,7 @@ module.exports = function (app, passport) {
 
     app.post('/suggest', function (req, res) {
         suggestionsController.addSuggestion(req.body);
-        res.render('beta/thanks');
+        res.render('thanks');
     });
 
     app.get('/voting', function (req, res) {
@@ -87,7 +87,7 @@ module.exports = function (app, passport) {
                 })
             }
         ], function (err, results) {
-            res.render('beta/voting', {
+            res.render('voting', {
                 voting: results[0],
                 pollId: results[1]
             });
@@ -99,7 +99,7 @@ module.exports = function (app, passport) {
     // =====================================
     app.get('/released', function (req, res) {
         gamesController.getAllReleasedGames(function (cb) {
-            res.render('beta/released', {games: cb});
+            res.render('released', {games: cb});
         });
     });
 
@@ -107,7 +107,7 @@ module.exports = function (app, passport) {
     // LOGIN ===============================
     // =====================================
     app.get('/login', function (req, res) {
-        res.render('beta/login', {message: req.flash('loginMessage')});
+        res.render('login', {message: req.flash('loginMessage')});
     });
 
     // process the login form
@@ -158,7 +158,7 @@ module.exports = function (app, passport) {
                 })
             }
         ], function (err, results) {
-            res.render('beta/admin', {
+            res.render('admin', {
                 user: req.user,
                 suggestions: results[0],
                 games: results[1],
@@ -168,7 +168,7 @@ module.exports = function (app, passport) {
     });
 
     app.get('/new', isLoggedIn,  function (req, res) {
-        res.render('beta/new');
+        res.render('new');
     });
 
     app.get('/togglepoll', isLoggedIn, function (req, res) {
@@ -191,7 +191,7 @@ module.exports = function (app, passport) {
 
     app.get('/edit/:id', isLoggedIn, function (req, res) {
         gamesController.getGame(req.params.id, function (cb) {
-            res.render('beta/edit', {
+            res.render('edit', {
                 game: cb
             });
         });

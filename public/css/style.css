@@ -1,79 +1,327 @@
-body {
-    //background-color: #02304c;
-    background-image: url(../img/footer_lodyas.png);
-    font-family: 'Roboto Condensed', "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif !important;
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+body{
+    background-image: url('../img/bg.jpg');
+    background-color: #000;
+    background-position: top;
+    background-repeat: no-repeat;
+
 }
 
-ul li {
-    list-style: none;
-}
-.toggle-games{
-    cursor: pointer;
-}
-#admin-games{
-    display: none;
-}
-.toggle-suggestions{
-    cursor: pointer;
-}
-#admin-suggestions{
-    display: none;
-}
-.cover {
-    width: 175px;
-    height: 225px;
-}
-
-.game {
-    #float: left;
-    height: 225px;
-    width: 175px;
-    margin-right: 25px;
-    margin-bottom: 20px;
+#wrapper{
+    width: 1200px;
+    margin: auto;
     position: relative;
-    cursor: pointer;
+    padding-top: 84px;
 }
 
-.gametitle {
-    font-family: 'Orbitron', sans-serif;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+a{
+    text-decoration: none;
     color: white;
-    background-color: black;
+}
+
+h1, h2{
+    text-transform: uppercase;
+}
+
+input
+{
+    font-size: 150%;
+}
+
+button{
+    font-size: 150%;
+}
+
+
+/*
+**********************************
+LOGO Inklusive Animation per CSS Sprite
+**********************************
+*/
+#logo{
+    background: url('../img/logo_sprite.png') left center;
+    width: 406px;
+    height: 216px;
+    margin: auto;
+    position: relative;
+    animation: play 5s steps(22) infinite;
+}
+@keyframes play {
+    100% { background-position: -8932px; }
+}
+
+/*
+**********************************
+FAQ BANNER
+**********************************
+*/
+#faq_banner{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #FFF;
+    color: #2e2750;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 13px;
+}
+
+#faq_banner a{
+    color: #2e2750;
+    text-decoration: none;
+}
+#faq_banner a:hover{
+    color: #000;
+    text-decoration: none;
+}
+
+#faq_banner::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: #FFF;
+    display: block;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 45%;
+
+}
+
+/*
+**********************************
+NAVIGATION
+**********************************
+*/
+
+#navi ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+#navi ul li{
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+
+#navi ul li a{
+    color: #FFF;
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 40px;
+    margin-left: 40px;
+    border-top: 3px solid #FFF;
+    border-bottom: 3px solid #FFF;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 700;
+
+}
+#navi ul li a:hover{
+    background-color: #FFF;
+    color: #2e2750;
+    outline: 10px solid #FFF;
+}
+
+#navi ul li a.active{
+    background-color: #FFF;
+    color: #2e2750;
+    outline: 10px solid #FFF;
+    position: relative;
+    overflow: visible;
+}
+
+#navi ul li a.active::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: #FFF;
+    display: block;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 45%;
+
+}
+
+/*
+**********************************
+Spiele
+**********************************
+*/
+
+ul#spiele{
+    margin: 0;
+    padding: 0;
+
+    display: block;
+}
+
+ul#spiele a{
+    color: red;
+}
+
+ul#spiele li{
+    display: block;
+    width: 260px;
+    border: 6px solid #FFF;
+    float: left;
+    margin: 14px;
+    height: 280px;
+    position: relative;
+}
+
+ul#spiele li .game{
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+ul#spiele li .game_name{
+    position: absolute;
+    z-index: 2;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    color: #FFF;
+    font-size: 26px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    line-height: 32px;
+    text-transform: uppercase;
+    width: 240px;
+}
+
+
+/* Spiele Info Anzeige beim Hovern */
+ul#spiele li:hover .info{
+    display: block;
+    cursor: pointer;
+}
+ul#spiele li .info{
+    display: none;
+    background-color: #FFF;
+    position: absolute;
+    width: 580px;
+    height: 319px;
+    z-index: 30;
+    top: -20px;
+    border: 6px solid #fff;
+    -webkit-box-shadow: -1px 0 108px -34px rgba(0,0,0,0.9);
+    -moz-box-shadow: -1px 0 108px -34px rgba(0,0,0,0.9);
+    box-shadow: -1px 0 108px -34px rgba(0,0,0,0.9);
+}
+
+
+/* Infobox links oder rechts Anzeigen */
+ul#spiele li .info.right{
+    left: -20px;
+}
+ul#spiele li .info.left{
+    right: -20px;
+}
+ul#spiele li .info.right .info_text{
+    left: 320px;
+}
+ul#spiele li .info.left .info_text{
+    left: 20px;
+}
+ul#spiele li .info.left .game_info{
+    right: 0;
+    position: absolute;
+}
+
+ul#spiele li .info .game_info{
+    width: 300px;
+    height: 100%;
+}
+
+ul#spiele li .info .game_name_info{
+
+    position: relative;
+    text-align: center;
+    padding-top: 42%;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FFF;
+    font-size: 26px;
+    height: 100%;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+ul#spiele li .info .info_text{
+    position: absolute;
+    top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+**********************************
+Footer
+**********************************
+*/
+#footer{
+    margin-top: 50px;
+    padding: 20px;
+}
+
+#footer .inner{
+    text-transform: uppercase;
+    border-top: 6px #fff solid;
+    color: #FFF;
+    font-weight: 300;
+    padding-top: 20px;
     text-align: center;
 }
 
-.fb {
-    clear: both;
-}
-.well{
-    background-image: url(../img/concrete_seamless.png);
-}
 
-#wall {
-    padding-left: 60px;
-    padding-right: 60px;
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-}
+/*
+**********************************
+Player
+**********************************
+*/
 
-#gameinfo-container {
+#player_container{
+    #background-color: #FFF;
     display: none;
 }
 
-#gameinfo-box {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
+#player_title{
+    text-transform: uppercase;
+    color: white;
+    font-size: 120%;
 }
 
-#gameinfo-vid {
-    #background-image: url("http://placehold.it/600x250");
-    #background-color: gainsboro;
-    height: 100%;
-    width: 55%;
+#player_pun{
+    text-transform: uppercase;
+    color: white;
+    font-size: 75%;
+}
+
+.play{
+    color: red;
 }
 
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
@@ -81,101 +329,59 @@ ul li {
 .embed-container object,
 .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-#gameinfo-info {
-    position: relative;
-    width: 45%;
-    text-align: center;
-    font-size: 150%;
+/*
+**********************************
+MISC
+**********************************
+*/
+
+.disclaimer{
+    font-size: 70%;
 }
 
-#gameinfo-title {
-    text-align: center;
+.well{
+    padding: 10px;
+    background-color: white;
 }
 
-.question {
-    font-weight: bold !important;
-}
-
-#links {
-    position: relative;
-    bottom: 0;
-}
-#about{
-    font-size: 120%;
-}
-
-#hint {
-    text-align: center;
-    font-size: 20px;
-}
-
-#gameinfo-shoplink {
-    position: absolute;
-    bottom: 0;
-    left: 200px;
-}
-
-.container{
-    width: 100%;
-    padding-left: 3%;
-    padding-right: 3%;
-}
-
-#header{
-    #background-color: #245269;
-    color: white;
-    text-align: center;
-}
-
-#headerlogo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    height: 100px;
-    background-color: grey;
-}
-
-#headertxt{
-    color : white;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 300%;
-}
-
-#wall-nav{
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-}
-
-#wall-nav a {
-    font-size: 150%;
-    margin-left: 25px;
-}
-
-.nav-active{
+.well a{
     color: red;
-}
-
-#main{
-    margin-top: 50px;
 }
 
 #vote{
     text-align: center;
 }
-/*
-@media (min-width: 768px)
-{.container {
-    width: 800px;
-}}
 
-@media (min-width: 992px)
-{.container {
-    width: 1000px;
-}}
+.featherlightbox{
+    display: none;
+}
 
-@media (min-width: 1200px)
-{.container {
-    width: 100%;
-}}
-*/
+.featherlightbox a{
+    color: red;
+}
+
+.btnstack{
+    padding-top: 30px;
+    text-align: center;
+}
+
+.btn{
+    text-transform: uppercase;
+    font-size: 300%;
+    padding: 15px;
+    margin-left: 10px;
+    border: 6px solid white;
+}
+
+.btn:hover{
+    background-color: #FFF;
+    color: #2e2750;
+    outline: 10px solid #FFF;
+}
+
+.is_new{
+    width: 100px;
+    background-color:white;
+    color: red;
+    text-align: center;
+}

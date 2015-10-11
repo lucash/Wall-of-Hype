@@ -1,7 +1,7 @@
 extends layouts/layout
 block content
+    include faq_index
+    include player
     include wall
-    include aboutreleased
     script.
-        $("#nav-released").addClass("nav-active");
-        PAGE_TYPE = 'released';
+        $("#nav-released").addClass("active");

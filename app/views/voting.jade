@@ -1,10 +1,14 @@
 extends layouts/layout
 block content
+    include faq_voting
     if voting
         include vote
     else
-        h1(style='text-align: center') Derzeit ist kein Voting offen!
-        h3(style='text-align: center') Neue Spiele können jederzeit im Community Tab vorgeschlagen werden.
+        h1(style='color:white;text-align: center') Derzeit ist kein Voting offen!
+        h3(style='color:white;text-align: center') Das nächste Voting startet am Ende der Paris Games Week (02.11.15)
+        h3(style='color:white;text-align: center') Neue Spiele können jederzeit im Community Tab vorgeschlagen werden.
+    div(style="clear:both")
+    div.btnstack
+        a.btn(href="#" data-featherlight="#faqlightbox") FAQ
     script.
-        $("#nav-voting").addClass("nav-active");
-        PAGE_TYPE = 'voting'
+        $("#nav-voting").addClass("active");
