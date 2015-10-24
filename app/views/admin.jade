@@ -13,8 +13,7 @@ block content
                     a.navbar-link(href='/reset') reset suggestions
                 li
                     a.navbar-link(href='/createpoll') create poll from suggestions
-                li
-                    a.navbar-link(href='/createhistory') create wall history
+
         h1.toggle-games games
         div#admin-games
             for game in games
@@ -30,3 +29,5 @@ block content
             ul
                 for suggestion in suggestions
                      li #{suggestion.title}
+                        span
+                            a(href='/remove/#{suggestion._id}') [delete]

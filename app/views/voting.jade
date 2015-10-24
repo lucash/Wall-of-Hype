@@ -2,11 +2,12 @@ extends layouts/layout
 block content
     include faq_voting
     if voting
-        include vote
+        include votebeta
     else
-        h1(style='color:white;text-align: center') Derzeit ist kein Voting offen!
-        h3(style='color:white;text-align: center') Das nächste Voting startet am Ende der Paris Games Week (02.11.15)
-        h3(style='color:white;text-align: center') Neue Spiele können jederzeit im Community Tab vorgeschlagen werden.
+        div.well
+            h1.centered Derzeit ist kein Voting offen!
+            h3.centered Das nächste Voting startet am Ende der Paris Games Week (02.11.15)
+            h3.centered Neue Spiele können jederzeit im Community Tab vorgeschlagen werden.
     div(style="clear:both")
     div.btnstack
         a.btn(href="#" data-featherlight="#faqlightbox") FAQ

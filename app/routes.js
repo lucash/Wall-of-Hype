@@ -2,6 +2,7 @@ var rest = require('connect-rest'),
     asynch = require('async'),
     gamesController = require('./controllers/games'),
     suggestionsController = require('./controllers/suggestions'),
+    pollsController = require('./controllers/polls'),
     settingsController = require('./controllers/settings');
 
 var options = {
@@ -73,6 +74,23 @@ module.exports = function (app, passport) {
         res.render('thanks');
     });
 
+    app.get('/result', function (req, res) {
+        asynch.parallel([
+            function (callback) {
+                settingsController.getPollId(function (cb) {
+                    callback(null, cb);
+                })
+            }
+        ], function (err, results) {
+            pollsController.getPoll(results[0], function (cb) {
+                res.render('result', {
+                    pollId: results[0],
+                    poll: cb
+                })
+            })
+        });
+    });
+
     app.get('/voting', function (req, res) {
         asynch.parallel([
             function (callback) {
@@ -92,6 +110,42 @@ module.exports = function (app, passport) {
                 pollId: results[1]
             });
         });
+    });
+
+    app.get('/votingbeta', function (req, res) {
+        asynch.parallel([
+            function(callback) {
+                settingsController.isVotingOpen(function (cb) {
+                    //isVotingOpen = cb;
+                    callback(null, true);
+                })
+            },
+            function (callback) {
+                settingsController.getPollId(function (cb) {
+                    callback(null, cb);
+                })
+            }
+        ], function (err, results) {
+            if(!results[0]){
+                res.render('voting', {
+                    voting: results[0],
+                    pollId: results[1]
+                })
+            }else {
+                pollsController.getPoll(results[1], function (cb) {
+                    res.render('voting', {
+                        voting: results[0],
+                        pollId: results[1],
+                        poll: cb
+                    })
+                })
+            }
+        });
+    });
+
+    app.post('/submit', function (req, res) {
+        pollsController.addVote(req.body);
+        res.render('thanksvote');
     });
 
     // =====================================
@@ -189,16 +243,18 @@ module.exports = function (app, passport) {
         })
     });
 
+    app.get('/remove/:id', isLoggedIn, function (req, res) {
+        suggestionsController.removeSuggestion(req.params.id, function() {
+            res.redirect('/admin');
+        })
+    });
+
     app.get('/edit/:id', isLoggedIn, function (req, res) {
         gamesController.getGame(req.params.id, function (cb) {
             res.render('edit', {
                 game: cb
             });
         });
-    });
-
-    app.get('/createhistory', isLoggedIn, function(req, res) {
-       res.render('createhistory');
     });
 
     app.post('/create', isLoggedIn, function (req, res) {

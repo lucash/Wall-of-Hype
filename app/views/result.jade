@@ -1,0 +1,9 @@
+extends layouts/layout
+block content
+    div.well
+        h1.centered Ergebnis
+        h1.centered total votes: #{poll.totalVotes}
+        each option in poll.options
+            - var v = Math.round((option.votes*100)/poll.totalVotes)/100
+            p #{option.title}:&nbsp;&nbsp;
+                span(style='color:red') #{option.votes} (#{v} %)

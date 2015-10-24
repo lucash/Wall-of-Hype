@@ -9,7 +9,7 @@ var settingsSchema = new Schema({
     */
     name: String,
     votingOpen: Boolean,
-    pollId: Number
+    pollId: String
 });
 
 var Settings = mongoose.model('Settings', settingsSchema);
