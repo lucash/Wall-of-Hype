@@ -354,6 +354,7 @@ MISC
     padding: 10px;
     background-color: white;
     margin-bottom: 20px;
+    box-shadow: 10px 10px;
 }
 
 .well a{
@@ -489,6 +490,7 @@ MISC
 #notification{
   background-color: green;
   text-align: center;
+  box-shadow: 10px 10px;
 }
 
 #notification a{

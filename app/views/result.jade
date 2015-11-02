@@ -1,27 +1,29 @@
 extends layouts/layout
 block content
     div.well
-        h1.centered Ergebnis
-        h1.centered total votes: #{poll.totalVotes}
-        table#resultTable
-          thead
+      h1.centered total votes: #{poll.totalVotes}
+      h3.centered Die Abstimmung läuft bis zum 9.11.15 - Die Top 15 betritt die Wall of Hype
+      table#resultTable
+        thead
+          tr
+            td Name
+            td # of votes
+            td %
+        tbody
+          each option in poll.options
             tr
-              td Name
-              td # Votes
-              td %
-          tbody
-            each option in poll.options
-              tr
-                - var v = Math.round((option.votes*100)/poll.totalVotes)/100
-                td #{option.title}
-                td #{option.votes}
-                td #{v}
+              - var v = Math.round((option.votes*100)/poll.totalVotes)
+              td #{option.title}
+              td #{option.votes}
+              td #{v}
 
 
-        script.
-          $(document).ready(function(){
-            $('#resultTable').DataTable({
-              "order": [[1, "desc"]],
-               "iDisplayLength": 200,
-            });
+      script.
+        $(document).ready(function(){
+          $('#resultTable').DataTable({
+            "order": [[1, "desc"]],
+             "iDisplayLength": 200,
+             paging: false
           });
+          $("#nav-voting").addClass("active");
+        });
