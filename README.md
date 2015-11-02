@@ -1,6 +1,6 @@
 # Wall of Hype
 
-Quellcode von http://wallofhype.de/, eine Abbildung der Wall of Hype bekannt aus der RocketbeansTV-Sendung "Game PLUS"
+Quellcode von http://wallofhype.de/, eine Abbildung der Wall of Hype bekannt aus der RocketbeansTV-Sendung "GAME Plus"
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Quellcode von http://wallofhype.de/, eine Abbildung der Wall of Hype bekannt aus
 ## Installation
 
 1. ```npm install```
-2. ```app/config/database.js``` öffnen und den Anweisungen folgen
+2. ```app/config/database.js``` öffnen und den Anweisungen für die Einbindung der Datenbank folgen
 3. Im Root-Directory ```node index``` ausführen ODER ```nf start``` (Sofern node-foreman verwendet wird)
 
 Die Web-App wird jetzt unter localhost:3000 oder localhost:5000 ausgeführt.
@@ -37,7 +37,7 @@ Generell für alle Veränderungen offen. Forked und schreibt eine Pull-Request u
 
 1. ~~Grafische Überarbeitung~~
 2. Möglichkeit dynamische "News" zu verfassen 
-3. Eigenes Voting-System (strawpoll entfernen)
+3. ~~Eigenes Voting-System (strawpoll entfernen)~~
 ...
 
 
