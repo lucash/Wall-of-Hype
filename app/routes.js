@@ -91,7 +91,8 @@ module.exports = function (app, passport) {
         });
     });
 
-    app.get('/voting', function (req, res) {
+//old
+    app.get('/votingbeta', function (req, res) {
         asynch.parallel([
             function (callback) {
                 settingsController.isVotingOpen(function (cb) {
@@ -112,7 +113,8 @@ module.exports = function (app, passport) {
         });
     });
 
-    app.get('/votingbeta', function (req, res) {
+// new
+    app.get('/voting', function (req, res) {
         asynch.parallel([
             function(callback) {
                 settingsController.isVotingOpen(function (cb) {

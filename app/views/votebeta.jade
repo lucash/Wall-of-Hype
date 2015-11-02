@@ -1,6 +1,7 @@
 div.well
     h1.centered #{poll.title}
-
+    h3.centered
+      a(href="/result") Ergebnis anschauen
     form#vote-form(action='/submit' method='post')
         div#vote-area
             each option in poll.options
@@ -10,4 +11,4 @@ div.well
                             input(type='checkbox' name='v' id='#{option._id}' value='#{option._id}')
                             label(for='#{option._id}')
         input(type='hidden' name='pollId' value='#{poll.id}')
-        button(type='submit') Submit
+        button(style='text-align: center;' type='submit') Submit

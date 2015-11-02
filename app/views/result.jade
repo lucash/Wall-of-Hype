@@ -3,7 +3,25 @@ block content
     div.well
         h1.centered Ergebnis
         h1.centered total votes: #{poll.totalVotes}
-        each option in poll.options
-            - var v = Math.round((option.votes*100)/poll.totalVotes)/100
-            p #{option.title}:&nbsp;&nbsp;
-                span(style='color:red') #{option.votes} (#{v} %)
+        table#resultTable
+          thead
+            tr
+              td Name
+              td # Votes
+              td %
+          tbody
+            each option in poll.options
+              tr
+                - var v = Math.round((option.votes*100)/poll.totalVotes)/100
+                td #{option.title}
+                td #{option.votes}
+                td #{v}
+
+
+        script.
+          $(document).ready(function(){
+            $('#resultTable').DataTable({
+              "order": [[1, "desc"]],
+               "iDisplayLength": 200,
+            });
+          });

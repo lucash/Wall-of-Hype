@@ -34,6 +34,7 @@ input
 
 button{
     font-size: 150%;
+    text-transform: uppercase;
 }
 
 
@@ -352,6 +353,7 @@ MISC
 .well{
     padding: 10px;
     background-color: white;
+    margin-bottom: 20px;
 }
 
 .well a{
@@ -401,6 +403,7 @@ MISC
 }
 
 #vote-form{
+  text-align: center;
     font-size: 150%;
 }
 
@@ -481,4 +484,14 @@ MISC
     height: 150px;
     border: 1px solid black;
     margin: 10px;
+}
+
+#notification{
+  background-color: green;
+  text-align: center;
+}
+
+#notification a{
+  color: whitesmoke !important;
+  text-decoration: underline;
 }

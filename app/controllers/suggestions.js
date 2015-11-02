@@ -34,6 +34,7 @@ var SuggestionsController = {
                 title: "Wähle Deine Favoriten!",
                 number: 1,
                 active: true,
+                totalVotes: 0,
                 options: options
             });
 
