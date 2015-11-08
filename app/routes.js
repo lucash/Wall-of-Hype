@@ -118,8 +118,7 @@ module.exports = function (app, passport) {
         asynch.parallel([
             function(callback) {
                 settingsController.isVotingOpen(function (cb) {
-                    //isVotingOpen = cb;
-                    callback(null, true);
+                    callback(null, cb);
                 })
             },
             function (callback) {
