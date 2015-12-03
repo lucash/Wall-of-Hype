@@ -2,6 +2,8 @@
 
 Quellcode von http://wallofhype.de/, eine Abbildung der Wall of Hype bekannt aus der RocketbeansTV-Sendung "GAME Plus"
 
+![GAME Plus](http://i.imgur.com/EGQgnGz.jpg "Die Wall of Hype in GAME Plus")
+
 ## Prerequisites
 
 1. NodeJS (mind. v0.10.13)
