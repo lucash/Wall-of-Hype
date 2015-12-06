@@ -5,25 +5,6 @@ var Suggestion = require('../models/suggestions'),
 
 var SuggestionsController = {
     createPollFromSuggestions: function (callback) {
-        /*
-        this.getSuggestions(function(cb){
-            var options = [];
-            for(game in cb){
-                options.push(cb[game].title);
-            }
-            rest.post("http://strawpoll.me/api/v2/polls", {
-                data: {
-                    "title": "Welche Spiele sollen auf der Wall of Hype erscheinen?",
-                    "options": options,
-                    "multi": true,
-                    "permissive": true
-                }
-            }).on('complete', function (data, response) {
-                settingsController.setPollId(data.id);
-                callback(data);
-            });
-        });
-        */
         this.getSuggestions(function(suggestions) {
             var options = [];
             for(game in suggestions){
@@ -32,7 +13,7 @@ var SuggestionsController = {
 
             var poll = new Poll({
                 title: "Wähle Deine Favoriten!",
-                number: 1,
+                number: 2,
                 active: true,
                 totalVotes: 0,
                 options: options
@@ -60,7 +41,7 @@ var SuggestionsController = {
             console.log('saved suggestion');
         });
     },
-    removeSuggestion: function (id){
+    removeSuggestion: function (id, callback){
         console.log('deleting suggestion...');
         Suggestion.remove({_id:id}, function (err) {
             if(!err){

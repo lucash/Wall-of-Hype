@@ -259,7 +259,7 @@ ul#spiele li .info .game_info{
     height: 100%;
 }
 
-ul#spiele li .info .game_name_info{
+ul#spiele li .info .game_name_info {
 
     position: relative;
     text-align: center;
@@ -272,6 +272,7 @@ ul#spiele li .info .game_name_info{
     height: 100%;
     box-sizing: border-box;
     text-transform: uppercase;
+    overflow: hidden;
 }
 
 ul#spiele li .info .info_text{

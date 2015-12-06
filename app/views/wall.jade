@@ -1,36 +1,41 @@
 ul#spiele
-    - var right = true
-    each game, index in games
-        li
-            if right
-                div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
-                    if game.new
-                        div.is_new NEW
-                    div.game_name #{game.title}
-                div.info.right
-                    div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
-                        div.game_name_info #{game.title}
-                    div.info_text
-                        p Developer: #{game.developer}
-                        p Publisher: #{game.publisher}
-                        p Release: #{game.releasedate}
-                        p
-                            a(href="#{game.homepage}" target="_blank") Zur Website
-                        div.play(id="#{game._id}") Trailer starten
-                - right = false;
-            else
-                div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
-                    if game.new
-                        div.is_new NEW
-                    div.game_name #{game.title}
-                div.info.left
-                    div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
-                        div.game_name_info #{game.title}
-                    div.info_text
-                        p Developer: #{game.developer}
-                        p Publisher: #{game.publisher}
-                        p Release: #{game.releasedate}
-                        p
-                            a(href="#{game.homepage}" target="_blank") Zur Website
-                        div.play(id="#{game._id}") Trailer ansehen
-                - right = true;
+  div#notification		
+    h2
+    a(href="/voting") Stimme jetzt für deine Favoriten ab!
+  - var right = true
+  each game, index in games
+      li
+          if right
+              div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                  if game.new
+                      div.is_new NEW
+                  div.game_name #{game.title}
+              div.info.right
+                  div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                      div.game_name_info #{game.description} 
+                  div.info_text
+                      h3 #{game.title} 
+                      p Developer: #{game.developer}
+                      p Publisher: #{game.publisher}
+                      p Release: #{game.releasedate}
+                      p
+                          a(href="#{game.homepage}" target="_blank") Zur Website
+                      div.play(id="#{game._id}") Trailer starten
+              - right = false;
+          else
+              div.game(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                  if game.new
+                      div.is_new NEW
+                  div.game_name #{game.title}
+              div.info.left
+                  div.game_info(id="#{game._id}" style="background-image: url(#{game.coverart})")
+                      div.game_name_info #{game.description} 
+                  div.info_text
+                      h3 #{game.title} 
+                      p Developer: #{game.developer}
+                      p Publisher: #{game.publisher}
+                      p Release: #{game.releasedate}
+                      p
+                          a(href="#{game.homepage}" target="_blank") Zur Website
+                      div.play(id="#{game._id}") Trailer ansehen
+              - right = true;

@@ -16,13 +16,23 @@ block content
 
         h1.toggle-games games
         div#admin-games
-            for game in games
-                li #{game.title}
-                    ul
-                        li #{game.coverart}
-                        li is offical? #{game.official}
-                a(href='/edit/#{game._id}') edit
-                hr
+          table
+            thead
+              tr
+                td Title
+                td Official?
+                td Community?
+                td Active?
+                td Action
+            tbody
+              for game in games
+                  tr 
+                    td #{game.title}
+                    td #{game.official}
+                    td #{game.community}
+                    td #{game.active}
+                    td
+                      a(href='/edit/#{game._id}') EDIT
         hr
         h2.toggle-suggestions suggestions
         div#admin-suggestions
