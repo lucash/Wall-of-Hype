@@ -129,18 +129,24 @@ NAVIGATION
     font-weight: 700;
 
 }
-#navi ul li a:hover{
-    background-color: #FFF;
-    color: #2e2750;
-    outline: 10px solid #FFF;
-}
-
+#navi ul li a:hover,
 #navi ul li a.active{
     background-color: #FFF;
     color: #2e2750;
-    outline: 10px solid #FFF;
     position: relative;
-    overflow: visible;
+}
+
+#navi ul li a:hover::before,
+#navi ul li a.active::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: transparent;
+    border: solid #FFF;
+    border-width: 13px 10px;
+    left: -10px;
+    top: -13px;
 }
 
 #navi ul li a.active::after {
