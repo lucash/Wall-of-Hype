@@ -505,3 +505,29 @@ MISC
   color: whitesmoke !important;
   text-decoration: underline;
 }
+
+form .form-group {
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+form .form-group label {
+    float: left;
+    width: 200px;
+
+    text-align: right;
+    margin: 3px 10px 3px 3px;
+
+    padding: 1px;
+
+    font-size: 150%;
+}
+
+form .form-group input[type='text'],
+form .form-group input[type='password'] {
+    font-family: 'Oswald', sans-serif;
+}
+
+form .form-group input[type='checkbox'] {
+    margin-top: 18px;
+}

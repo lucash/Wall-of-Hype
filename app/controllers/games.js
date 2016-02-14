@@ -14,13 +14,13 @@ var GamesController = {
             homepage: data.homepage,
             coverart: data.coverart,
             trailerID: data.trailerID,
-            official: data.official,
-            community: data.community,
-            active: data.active,
-            released: data.released,
+            official: data.official == 'on',
+            community: data.community == 'on',
+            active: data.active == 'on',
+            released: data.released == 'on',
             releasedate: data.releasedate,
             platforms: platforms,
-            new: data.new
+            new: data.new == 'on'
         });
 
         game.save(function (err) {
@@ -38,12 +38,12 @@ var GamesController = {
             game.homepage = data.homepage;
             game.coverart = data.coverart;
             game.trailerID = data.trailerID;
-            game.official = data.official;
-            game.community = data.community;
-            game.active = data.active;
-            game.released = data.released;
+            game.official = data.official == 'on';
+            game.community = data.community == 'on';
+            game.active = data.active == 'on';
+            game.released = data.released == 'on';
             game.releasedate = data.releasedate;
-            game.new = data.new;
+            game.new = data.new == 'on';
 
             // platforms..
 
