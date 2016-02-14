@@ -2,15 +2,15 @@ var Settings = require('../models/settings');
 
 var SettingsController = {
     isVotingOpen: function (callback) {
-        Settings.findOne({name: 'primarySettings'}, function (err, obj) {
-            if (err) return handleError(err);
-            callback(obj.votingOpen);
+        this.getPrimarySettings(function(settings) {
+            callback(settings.votingOpen == true);
         });
     },
     togglePoll: function (callback) {
-        Settings.findOne({name: 'primarySettings'}, function (err, obj) {
-            if (err) return handleError(err);
+        this.getPrimarySettings(function (obj) {
             //var val = JSON.parse(obj.value);
+            obj = obj || new Settings();
+
             if (obj.votingOpen)
                 val = false;
             else
@@ -27,8 +27,8 @@ var SettingsController = {
         });
     },
     setPollId: function (id) {
-        Settings.findOne({name: 'primarySettings'}, function (err, obj) {
-            if (err) return handleError(err);
+        this.getPrimarySettings(function (obj) {
+            obj = obj || new Settings();
             obj.pollId = id;
 
             obj.save(function (err) {
@@ -37,9 +37,20 @@ var SettingsController = {
         });
     },
     getPollId: function (callback) {
+        this.getPrimarySettings(function (obj) {
+            callback(obj.pollId);
+        });
+    },
+    getPrimarySettings: function(callback) {
         Settings.findOne({name: 'primarySettings'}, function (err, obj) {
             if (err) return handleError(err);
-            callback(obj.pollId);
+
+            if (!obj) {
+                obj = new Settings();
+                obj.name = 'primarySettings';
+            }
+
+            callback(obj);
         });
     }
 };
