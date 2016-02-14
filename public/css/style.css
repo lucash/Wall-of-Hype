@@ -151,7 +151,8 @@ NAVIGATION
     display: block;
     position: absolute;
     transform: rotate(45deg);
-    left: 45%;
+    left: 50%;
+    margin-left: -10px;
 
 }
 
